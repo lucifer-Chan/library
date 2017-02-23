@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="page js_show">
+        <div class="page__bd" style="height: 100%;">
+            <div class="weui-tab">
+                <div class="weui-navbar">
+                    <div class="weui-cell weui-cell_select">
+                        <div class="weui-cell__bd">
+                            <select class="weui-select"
+                                    ng-model="vm.selectedGrade"
+                                    ng-options="option.name for option in vm.grades track by option.id">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="weui-navbar__item" ng-class="{'weui-bar__item_on' : vm.selectTab == 0}" ng-click="vm.showRecommend(0)">
+                        已推荐
+                    </div>
+                    <div class="weui-navbar__item" ng-class="{'weui-bar__item_on' : vm.selectTab == 1}" ng-click="vm.showRecommend(1)">
+                        未推荐
+                    </div>
+                </div>
+                <div class="weui-tab__panel">
+                    <uib-accordion close-others="true" >
+                        <div uib-accordion-group class="panel-group"
+                             ng-click="vm.expandCourse(course)"
+                             template-url="group-template.html"
+                             heading="{{course.lesson.number}}、{{course.lesson.name}}"
+                             ng-show="(vm.selectTab == 0 && course.recommendsNum != 0 && course.grade == vm.selectedGrade.id) || (vm.selectTab == 1 && course.recommendsNum == 0 && course.grade == vm.selectedGrade.id)"
+                             ng-repeat="course in vm.courses">
+                            <div class="right">
+                                <div class="weui-btn weui-btn_mini weui-btn_primary btn-right">添加推荐</div>
+                            </div>
+                            <tt-books>
+                                <tt-book ng-repeat="recomend in course.recomends" book="recomend">
+                                    <div class="weui-btn weui-btn_mini weui-btn_primary"
+                                         ng-click="recomend.ctrl.toggleShowComments()">
+                                        {{recomend.ctrl.bShowedComments ? '收起评论' : '查看评论'}}
+                                    </div>
+                                    <div class="weui-btn weui-btn_mini weui-btn_primary"
+                                         ng-click="recomend.ctrl.toAddComment()">添加评论</div>
+                                    <div ng-show="recomend.ctrl.bShowedComments">
+                                        <div class="comment-list">
+                                            <div class="comment-item" ng-repeat="comment in recomend.comments">
+                                                <div class="header">
+                                                    <img ng-src="{{comment.teacher_info.avatar}}" alt="head images show" />
+                                                </div>
+                                                <div class="text">
+                                                    <h1>{{comment.teacher_info.name}}</h1>
+                                                    <p>{{comment.content}}</p>
+                                                </div>
+                                                <span class="time">{{comment.created_at}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div ng-show="vm.bShowComments">{{recomend.comments}}</div> -->
+                                </tt-book>
+                            </tt-books>
+                        </div>
+                    </uib-accordion>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

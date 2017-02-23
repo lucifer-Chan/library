@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>个人信息</title>
+    <!--<base href="../../static/"/>-->
+    <base href="../../"/>
+    <script src="js/angular/angular.min.js" type="text/javascript"></script>
+    <script src="js/main.config.js" type="text/javascript"></script>
+    <script>
+        var app = App.main;
+        //        1.1
+        //        app.controller("TestController", function($scope){
+        //            $scope.info = {
+        //                name : "lucifer.chan"
+        //            }
+        //        })
+        //        1.2
+        app.controller("Controller1", ["$scope", function ($scope) {
+            $scope.info = {
+                name: "Controller1's info name"
+            }
+        }]).directive("hello", function () {
+            return {
+                restrict: "E",
+//                template: "<div>I am a directive!</div>",
+//                templateUrl : "../public/sandbox/hello.html",
+                templateUrl : "tpls/hello.html",
+                replace: true
+            }
+        }).controller("Controller2", ["$scope", "$rootScope", function($scope, $rootScope){
+            $scope.info = {
+                name: "Controller2's info name"
+            };
+            $rootScope.root = {
+                name: "root's info name"
+            }
+        }]).controller("Controller3", ["$scope", function($scope){
+            $scope.info = {
+                name : "Controller3's info name"
+            };
+            $scope.names = ["A", "B", "C"];
+        }]).controller("EventController", ["$scope", function($scope){
+            $scope.count = 0;
+            $scope.$on("MyEvent", function(){
+                $scope.count ++;
+            })
+        }])
+    </script>
+</head>
+
+<body ng-app="app">
+    <strong>1、测试数据绑定</strong>
+    <div ng-controller="Controller1">
+        <input type="text" ng-model="info.name">
+        <p>Hello,{{info.name}}</p>
+        <hello></hello>
+    </div>
+    <div ng-controller="Controller2">
+        <input type="text" ng-model="info.name">
+        <p>{{info.name}}</p>
+        <input type="text" ng-model="root.name">
+        <p>{{root.name}}</p>
+    </div>
+    <div ng-controller="Controller3">
+        <input type="text" ng-model="info.name">
+        <p>{{info.name}}</p>
+        <input type="text" ng-model="root.name">
+        <p>{{root.name}}</p>
+        <ol>
+            <li ng-repeat="name in names">{{name}} from {{root.name}}</li>
+        </ol>
+    </div>
+    <strong>2、测试 ng-show</strong>
+    <input ng-model="showSpecial" type="checkbox">
+    <div ng-show="showSpecial">
+        This content will disappear and reappear if you click the checkbox above
+    </div>
+    <br>
+
+    <strong>3、测试emit和broadcast</strong>
+    <div ng-controller="EventController">
+        Root Scope
+        <strong>My Event</strong> count : {{count}}
+        <ul>
+            <li ng-repeat = "i in [1]" ng-controller="EventController">
+                <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+                <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+                <br>
+                Middle Scope
+                <strong>My Event</strong> count : {{count}}
+                <ul>
+                    <li ng-repeat="item in [1,2]" ng-controller="EventController">
+                        Leaf scope
+                        <strong>My Event</strong> count : {{count}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

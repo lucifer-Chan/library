@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="ttLibrary">
+<head>
+    <meta charset="UTF-8">
+    <title>微笑阅读</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/dangdang.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/common.v4.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="js/angular/angular.min.js" type="text/javascript"></script>
+    <script src="js/angular/angular-route.js" type="text/javascript"></script>
+    <script src="js/angular/angular-animate.js" type="text/javascript"></script>
+    <script src="js/angular/ui-bootstrap-tpls-2.2.0.js" type="text/javascript"></script>
+
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers.js" type="text/javascript"></script>
+    <script src="js/services.js" type="text/javascript"></script>
+    <script src="js/directives.js" type="text/javascript"></script>
+    <script src="js/filters.js" type="text/javascript"></script>
+    <script src="js/components.js" type="text/javascript"></script>
+</head>
+<body ontouchstart class="font-family-ms">
+    <div class="page-full-screen">
+        <div class="page-container">
+            <div uib-alert
+                 ng-show="$root.alert.showed"
+                 ng-class="'alert-' + ($root.alert.type || 'warning')">
+                {{$root.alert.msg}}
+            </div>
+            <loading></loading>
+            <div ng-view>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/ng-template" id="group-template.html">
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-click="toggleOpen()">
+            <h4 class="panel-title">
+                <div tabindex="0" class="accordion-toggle" uib-accordion-transclude="heading">
+                    <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                      {{heading}}
+                    </span>
+                </div>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" ng-transclude></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="books-template.html">
+    <div class="bookList_session">
+        <ul class="bookList_ul j_bookList_ul" ng-transclude></ul>
+    </div>
+</script>
+
+<script type="text/ng-template" id="book-template.html">
+    <li class="book">
+        <div class="book_main">
+            <div class="book_img"><img ng-src="{{book.img_url||'img/nopic.png'}}"></div>
+            <div class="book_contain">
+                <p class="book_title textOverflow_hidden">{{book.name}}</p>
+                <p class="textOverflow_hidden">作者：{{book.author}}</p>
+                <p class="textOverflow_hidden">出版社：{{book.publishing}}</p>
+                <p class="textOverflow_hidden">ISBN：{{book.isbn}}</p>
+                <p><span class="price">￥{{book.price}}</span><span class="comments_num">{{book.comments.length}}条评论</span></p>
+            </div>
+            <p class="book_description">摘要：{{book.digest}}</p>
+            <div ng-transclude class="book_comments"></div>
+        </div>
+    </li>
+</script>
+
+<script type="text/ng-template" id="book-comment.html">
+    <div class="modal-header">
+        <label class="modal-title">添加评论</label>
+        <div class="modal-title" style="float: right;">{{content.length}}/{{max}}</div>
+    </div>
+    <div class="modal-body">
+        <textarea class="weui-textarea" placeholder="请输入评论" rows="3" ng-model="content" ng-maxlength="200"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-modal" type="button" ng-click="submit()" ng-disabled="content.length==0 || content==undefined">确认</button>
+        <button class="btn btn-warning btn-modal" type="button" ng-click="cancel()">取消</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="school-selector.html">
+    <div ng-show="$ctrl.showed">
+        <header class="address_header">
+            <div><i class="weui-icon-cancel" ng-click="$ctrl.close()"></i></div>
+            <div class="title">选择学校</div>
+            <div><p><span></span></p></div>
+        </header>
+        <div class="address_divsionSelect">
+            <ul class="address_selected">
+                <li class="address_row" ng-repeat="s in $ctrl.selected" ng-click="$ctrl.reselect(s)">{{s.value}}</li>
+            </ul>
+            <ul>
+                <li class="address_row" ng-repeat="s in $ctrl.forselect" ng-click="$ctrl.select(s)">{{s.value}}</li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+</html>

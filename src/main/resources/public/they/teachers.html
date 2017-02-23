@@ -1,0 +1,39 @@
+<school-selector showed="department.showed" complete="department.complete(data)" init-data="department.clause"></school-selector>
+
+<div ng-hide="department.showed">
+    <div class="weui-search-bar">
+        <div class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <input class="weui-search-bar__input">
+            </div>
+            <label class="weui-search-bar__label" ng-click="department.search()">
+                <i class="weui-icon-search" ng-hide="department.result"></i>
+                <span>{{department.result || '选择学校'}}</span>
+            </label>
+        </div>
+    </div>
+    <div class="weui-search-bar">
+        <div class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input class="weui-search-bar__input" placeholder="教师姓名" ng-model="query.name" ng-disabled="department.clause==null">
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-cells searchbar-result">
+        <div class="weui-cell" ng-repeat="teacher in query.result">
+            <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <img ng-src="{{teacher.avatar}}" style="width: 50px;display: block">
+            </div>
+            <div class="weui-cell__bd">
+                <p>{{teacher.name}}</p>
+                <p style="font-size: 13px;color: #888888;">
+                    <a ng-show="teacher.recommendNum" ng-href="#/teacher/{{teacher.id}}">推荐：<span style="color:red;padding-right: 5rem;">{{teacher.recommendNum || 0}}</span></a>
+                    <a ng-hide="teacher.recommendNum">推荐：<span style="color:red;padding-right: 5rem;">{{teacher.recommendNum || 0}}</span></a>
+                    <a>评论：<span style="color:red">{{teacher.commentNum || 0}}</span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

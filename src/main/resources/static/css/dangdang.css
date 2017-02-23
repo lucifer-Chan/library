@@ -1,0 +1,57 @@
+/*header样式*/
+.header {z-index: 5; margin: 0 auto;overflow: visible;width: 100%;line-height: 2.2rem;background-color: #fff;color: #333;}
+.mask{    z-index: 1;display: none; width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0,0,0,0.5);}
+.fixed_box {position: fixed;bottom: .5rem;right: .5rem;display: none;}
+.no_border{border:0!important;}
+/*页头筛选按钮样式*/
+.bookList_nav{height: 2rem;}
+.nav_ul{width:100%;height:1.45rem;padding:.25rem 0;border-bottom:1px solid #ccc;background-color:#fff}
+.nav_ul li{float:left;width:33%;text-align:center;border-right:1px solid #ccc;font-size:.7rem;line-height:1.45rem;}
+.nav_ul li.selected{color: rgb(255,70,60);}
+.nav1_icon{display:inline-block;width:0.45rem;height:0.4rem;margin-left:0.3rem;}
+.down_icon{background:url(../images/tushubang/down_icon.png) no-repeat;background-size:0.45rem 0.2rem;}
+.nav_ul li.selected .down_icon{background:url(../images/tushubang/up_icon_red.png) no-repeat;background-size:0.45rem 0.2rem;}
+/*选择项样式*/
+.select_types{display: block; position: relative; border:0; border-bottom: 0.8rem; border-image: url(../images/tushubang/bottom_icon.png) 100; -moz-border-image: url(../images/tushubang/bottom_icon.png) 100;	/* Old Firefox */-webkit-border-image:url(../images/tushubang/bottom_icon.png) 100;	/* Safari and Chrome */ -o-border-image:url(../images/tushubang/bottom_icon.png) 100;		/* Opera */}
+.select_types ul{max-height: 15rem; overflow-y: scroll; overflow-x: hidden;background-color: white;}
+/*行选择*/
+.select_line_type{display: none; width: 100%;}
+.select_line_type li{width: 100%; height: 2.5rem;padding-left: 1.25rem;border-bottom: 1px solid rgb(204,204,204); font-size:0.75rem; line-height:2.5rem; color: rgb(56,56,56);}
+.select_line_type li:last-child{border: 0px;}
+.select_line_type li.selected{color: rgb(255,70,60)!important;}
+.select_types a.nav_li_a{display:block;}
+/*按钮选择*/
+.select_button_type{display: none; width: 100%; }
+.select_button_type li{ width: 28%;margin: 0.5rem 2%;height: 1.35rem;display: inline-block;text-align: center;font-size: 0.68rem;line-height: 1.5rem;color: rgb(56,56,56);}
+.select_button_type li.selected{color: rgb(255,70,60)!important;}
+
+/*书籍列表样式*/
+.bookList_session{display:block;width:100%;background-color:#e8e8e8}
+.bookList_ul li{width:100%;margin-top:1.25rem;overflow: auto;padding-bottom: 1rem;background: white;}
+/*.book_main{width:100%;height:6.05rem;background-color:#fff}*/
+.book_main{width:100%;background-color:#fff;padding-top: 1rem;}
+/*.book_main .book_img{float:left;width:33.3%; position: relative;}*/
+.book_main .book_img{float:left;width:33.3%;max-height:12.1rem; position: relative;}
+.book_main .book_index{background: rgb(255,68,51); color: rgb(255,255,255);font-size: 12px; padding: 0 0.2rem; line-height: 0.75rem;position: absolute;top:0px;left:0px;}
+/*.book_img img{max-width: 75%;max-height: 4.55rem;padding: 0.75rem 11.5% 0.75rem 13.5%;}*/
+.book_img img{max-width: 90%;max-height: 12.1rem}
+.book_main .book_contain{float:left;width:66.6%;padding:.35rem 0 .65rem 0;color:#a0a0a0;font-size:1.2rem;line-height:1.2rem;max-height: 12.1rem}
+.book_main .book_comments{float:left;width:100%;color:#a0a0a0;font-size:1rem;line-height:1rem;margin-top: -1.32rem;}
+.book_main .book_description {float: left;width: 100%;color: #a0a0a0;font-size: 1.2rem;line-height: 1.8rem;margin-top: 0.5rem;}
+/*.book_title{color:#3f3f3f;font-size:.8rem;line-height:1.2rem}*/
+.book_title{color:#3f3f3f;font-size: 1.7rem;line-height: 2rem;}
+.textOverflow_hidden{overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
+.now_price{color:#f43}
+.old_price{text-decoration:line-through;margin-left: 0.2rem;}
+.phone_only{width: 3rem;height: 0.8rem;display: inline-block;background: url(../images/tushubang/phone_only.png) no-repeat;margin-left: 0.4rem;background-size: 3rem 0.8rem;vertical-align:sub;}
+.book_description{width:100%;font-size:1.2rem;min-height: 3.25rem;line-height: 1.5rem;background-color:#f5f7f6}
+.book_description p{padding:.5rem .95rem;font-size:1.2rem;text-align:left;color:#a0a0a0;font-size:.7rem;line-height:1.125rem; height: 1.9rem; overflow: hidden;}
+.book_contain p.star_p{}
+.book_contain .red_star{ width: 0.8rem;height: 0.75rem;display: inline-block;vertical-align: middle;padding-bottom: 2px; background: url(../images/tushubang/red_star.png) no-repeat;background-size: 0.8rem 0.75rem;}
+.book_contain .gray_star{ width: 0.8rem;height: 0.75rem;display: inline-block; background: url(../images/tushubang/gray_star.png) no-repeat;background-size: 0.8rem 0.75rem;}
+.comments_num{padding-left: 0.75rem;font-weight: 700;  color: red;}
+
+/*错误页样式*/
+.error_page{height: 18rem!important; padding-top: 30%; background: white;}
+.error_page .error_icon{height:10rem; width: 10rem; display: block; margin: 0 auto; background: url(../images/tushubang/no_data_icon.png) no-repeat; background-size: 10rem 10rem; }
+.error_page .error_message{line-height: 2rem; font-size: 0.7rem; text-align: center; color: rgb(56,56,56);}

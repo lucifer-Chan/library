@@ -1,0 +1,433 @@
+@CHARSET "UTF-8";
+
+html,body,input,button,select {
+	/*font-family: "微软雅黑", "华文细黑", "黑体简", sans-serif;*/
+	font-family:'Microsoft YaHei','Open Sans', sans-serif;!important;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	line-height: 1.2;
+}
+
+/* 背景 */
+.page-full-screen {
+	background-color: #efeff4;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* （内容）容器层 */
+.page-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+/* 页面顶部距离 */
+.page-container-margin-top {
+	margin-top: 8px;
+}
+
+
+/* 页面布局 左中右 */
+.layout-left,.layout-center,.layout-right {
+	-webkit-box-flex:1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.layout-right {
+	text-align: right;
+}
+
+ /* 垂直居中 */
+.layout-vertical-center {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-align:center;
+     
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center; 
+
+}
+
+/* 水平居中*/
+.layout-horizontal-center {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-pack:center;
+      
+    -webkit-justify-content: center;
+    -moz-justify-content: center; 
+    justify-content: center; 
+}
+      
+/* 四 边阴影 */
+.border-shadow {
+	-webkit-box-shadow: 0px 0px 1.5px #d8d8d8;
+}
+
+/* 底边框  */
+.border-bottom {
+	border-bottom: 1px solid #E5E5E5;
+}
+
+/* 上下边框  */
+.border-top-bottom {
+	border-top: 1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+/* 蓝色边框  */
+.border-1px-color{
+	border:1px solid #1e84cc;
+}
+
+
+/* 无列表无数据 */
+.list-no-data {
+	display: none;
+	text-align: center;
+	padding-top: 24px;
+}
+
+/* 列表有数据 */
+.list-has-data {
+	height: auto;
+	clear: both;
+	overflow: hidden;
+}
+
+/* 列表项 */
+.list-item, .list-contain-item, .list-center-item, .list-contain-center-item {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.list-item, .list-center-item {
+	background-color:#FFFFFF;
+}
+
+.list-center-item, .list-contain-center-item {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+/* 列表项点击颜色 */
+.list-item-active:active {
+	background-color: #EFEFEF;
+}
+
+
+
+/* 按钮样式 */
+.btn-list-item-right {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+/* 箭头   灰色 */
+.btn-item-jump-color {
+	color: #b5b5b5;
+}
+
+.btn-positive, .btn-negative, .btn-cancle, .btn-share, .btn-receive, .btn-apply, .btn-send, .btn-deleted  {
+	display: block;
+	margin: 12px auto;
+	padding: 12px;
+	width: 94%;
+	font-size: 19px;
+	color: #fff;
+	border-width: 0;
+	border-radius: 6px;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-appearance: none;
+}
+
+/* 肯定按钮 */
+.btn-positive {
+	background-color: #1e84cc !important;
+	color:#ffffff !important;
+}
+
+.btn-positive:active {
+	background-color: #3694c0 !important;
+	color:#ffffff !important;
+}
+
+.btn-positive:disabled {
+	background-color: rgba(56, 184, 240, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 否定按钮 */
+.btn-negative {
+	background-color: #fa5c50 !important;
+	color:#ffffff !important;
+}
+
+.btn-negative:active {
+	background-color: #c84940 !important;
+	color:#ffffff !important;
+}
+
+.btn-negative:disabled {
+	background-color: rgba(250, 92, 80, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 取消按钮 */
+.btn-cancle {
+	background-color: #858c96 !important;
+	color:#ffffff !important;
+}
+
+.btn-cancle:active {
+	background-color: #a0a3a8 !important;
+	color:#ffffff !important;
+}
+
+.btn-cancle:disabled {
+	background-color: rgba(57, 64, 68, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 分享按钮 */
+.btn-share {
+	background-color: #86cd4d !important;
+	color:#ffffff !important;
+}
+
+.btn-share:active {
+	background-color: #94d85e !important;
+	color:#ffffff !important;
+}
+
+/* 领取卡券按钮 */
+.btn-receive {
+	background-color: #dcb316 !important;
+	color:#ffffff !important;
+}
+
+.btn-receive:active {
+	background-color: #e1c044 !important;
+	color:#ffffff !important;
+}
+
+/* 申请红包按钮 */
+.btn-apply {
+	background-color: #e33e64 !important;
+	color:#ffffff !important;
+}
+
+.btn-apply:active {
+	background-color: #ea6080 !important;
+	color:#ffffff !important;
+}
+
+/* 转发按钮 */
+.btn-send {
+	background-color: #cd4f50 !important;
+	color:#ffffff !important;
+}
+
+.btn-send:active {
+	background-color: #d96768 !important;
+	color:#ffffff !important;
+}
+
+/* 删除按钮 */
+.btn-deleted {
+	background-color: #ef5951 !important;
+	color:#ffffff !important;
+}
+
+.btn-deleted:active {
+	background-color: #fc766f !important;
+	color:#ffffff !important;
+}
+
+/* 输入框样式 */
+.input{
+	width: 100%;
+	font-size: 14px;
+	color: #898989;
+	border: 0px;
+	text-align: right;
+	/* direction:rtl; */
+	outline:none;
+	background-color:#fff;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-appearance: none;
+}
+	
+::-webkit-input-placeholder {
+	direction:rtl; 
+	text-align: right;
+    color: #bebebe;
+}
+
+
+/* 表格样式 */
+.table {
+	width: 100%;
+	border-color: #747474;
+	font-size: 12px;
+	color: #4d4d4d;
+}
+
+.table tr {
+	height: 24px;
+}
+
+.table tr th {
+	width: 25%;
+	background-color: #adadad;
+	text-align: center;
+}
+
+.table tr td {
+	background-color: #c9c9c9;
+	text-align: center;
+}
+
+
+/* 分割线 */
+.div-hr{
+	height:1px;
+	width:100%;
+	margin: auto;
+	background:#E5E5E5;
+	font-size:1px;
+	line-height:1px;
+	overflow:hidden;
+}
+
+
+.div-text-wrap, .div-text-online{
+	overflow:hidden; 	/*自动隐藏文字*/
+	text-overflow:ellipsis;  /*文字隐藏后添加省略号*/
+}
+
+.div-text-online {
+	white-space: nowrap;/*强制不换行*/
+}
+
+/* 字体  黑体 */
+.font-family-heiti {
+	font-family: "黑体";
+}
+
+.font-family-ms {
+	/*font-family: "微软雅黑", "华文细黑", "黑体简", sans-serif;*/
+	font-family: 'Microsoft YaHei','Open Sans', sans-serif;
+}
+
+/* 字体 字号 */
+.font-size-t {
+	font-size: 12px;
+}
+
+.font-size-s {
+	font-size: 13px;
+}
+
+.font-size-m {
+	font-size: 14px;
+}
+
+.font-size-l {
+	font-size: 16px;
+}
+
+.font-size-xl {
+	font-size: 19px;
+}
+
+/* 字体  标题  黑色   开始赚钱界面*/
+.font-title-color {
+	color: #151515;
+}
+
+.font-title-color-674941{
+	color: #674941;
+}
+
+/* 字体  日期  红色 */
+.font-datetime-color {
+	color: #d4595e;
+}
+
+/* 字体  内容  描述    深灰色 */
+.font-lable-color {
+	color: #4d4d4d;
+}
+
+/* 字体  内容  信息    浅灰色 */
+.font-info-color {
+	color: #787878;
+}
+
+/* 字体  标题   属性   黑色   接待顾客和我的好友界面*/
+.font-title-rf-color {
+	color: #22292c;
+}
+
+/* 字体    描述   灰色   接待顾客和我的好友界面*/
+.font-remark-rf-color {
+	color: #7e8182;
+}
+
+/* 字体  输入框   输入前   浅灰色 */
+.font-input-pre-color {
+	color: #bebebe;
+}
+
+/* 字体  输入框   输入后  浅灰色 */
+.font-input-aft-color {
+	color: #898989;
+}
+
+/* 字体  按钮  白色 */
+.font-btn-color-white {
+	color: #ffffff;
+}
+
+/* 字体  按钮  蓝色 */
+.font-btn-color-blue {
+	color: #1e84cc;
+}
+
+/* 文案说明隐藏 */
+.ui-hidden-accessible{
+	display: none;
+}
+

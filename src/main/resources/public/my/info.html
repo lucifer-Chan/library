@@ -1,0 +1,36 @@
+<div class="page__bd">
+    <div class="weui-cells">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <p>学校信息</p>
+            </div>
+            <div class="weui-cell__ft">{{vm.school_info}}</div>
+        </div>
+    </div>
+    <div class="weui-cells">
+        <div class="weui-cell weui-cell_access" ng-click="vm.toEditGrade()">
+            <div class="weui-cell__bd">
+                <p>年级信息</p>
+            </div>
+            <div class="weui-cell__ft">{{vm.gradeInfo}}</div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入姓名" ng-model="vm.teacher.name"/>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label">手机号</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="tel" placeholder="请输入手机号" ng-model="vm.teacher.mobile">
+            </div>
+        </div>
+    </div>
+    <div class="weui-btn-area">
+        <div ng-click="vm.submit()" class="weui-btn weui-btn_primary" ng-class="{'weui-btn_disabled':!vm.changeInfo}">确认提交</div>
+    </div>
+</div>

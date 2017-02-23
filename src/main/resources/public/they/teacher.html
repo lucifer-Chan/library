@@ -1,0 +1,23 @@
+<div style="background: white;" class="page-full-screen">
+    <div class="container">
+        <tt-books>
+            <tt-book ng-repeat="recomend in data" book="recomend">
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-btn weui-btn_mini weui-btn_primary"
+                         style="margin: 0.5rem 0 0.5rem 0.5rem"
+                         ng-click="recomend.toggleMaterial()">
+                        {{recomend.bShowedMaterial ? '收起课目' : '查看课目'}}
+                    </div>
+                    <div ng-show="recomend.bShowedMaterial">
+                        <div class="weui-panel__bd" ng-repeat="item in recomend.materials">
+                            <div class="weui-media-box weui-media-box_text" style="padding: 0 0 1px 15px;">
+                                <h4 class="weui-media-box__title" style="font-size: 1.5rem;">{{item.material.lesson_number}}、{{item.material.lesson_name}}-{{item.material.pre_grade.name}}</h4>
+                                <p class="weui-media-box__desc"><strong>推荐原因：</strong>{{item.material.reason}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tt-book>
+        </tt-books>
+    </div>
+</div>

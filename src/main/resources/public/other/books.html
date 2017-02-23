@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书查询</title>
+    <base href="../../" />
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/artTemplate.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div>
+    <label for="isbn">isbn(扫码获得)</label><input id="isbn"/>
+    <label for="name">书名</label><input id="name"/>
+    <label for="publishing">出版社</label><input id="publishing"/>
+    <label for="author">作者</label><input id="author"/>
+</div>
+</form>
+<button id="submit">查询</button>
+<div id="ret"></div>
+
+<script>
+    $("#submit").on('click', function(){
+        var book = {
+            isbn : $("#isbn").val() || "",
+            name : $("#name").val() || "",
+            publishing : $("#publishing").val() || "",
+            author : $("#author").val() || ""
+        };
+
+        $.get('/search/book', book, function(bs){
+            $("#ret").html(JSON.stringify(bs));
+        });
+    })
+
+</script>
+</body>
+</html>

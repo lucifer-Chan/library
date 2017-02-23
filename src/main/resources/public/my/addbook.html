@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base href="../../" />
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<script>
+    function doAddBook(){
+        var content = "Hello~ Thinking in Java";
+        var book = {
+            author : "Bruce",
+            digest : "JAVA殿堂级书籍",
+            isbn : "978712333323",
+            name : "Thinking in Java",
+            price : 37.89,
+            publishing : "浙江人民教育出版社"
+        }
+        $.post("/teacher/doAddBook", $.extend(book, {content : content, materialid : 58}), function(bs){
+            console.log(bs);
+        })
+    }
+
+    doAddBook();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="weui-cells__title">选择年级</div>
+<div class="weui-cells weui-cells_checkbox">
+    <label class="weui-cell weui-check__label" ng-repeat="grade in grades">
+        <div class="weui-cell__hd">
+            <input type="checkbox" class="weui-check" name="checkbox1" ng-checked='isSelected(grade.id)' ng-click='updateSelection($event,grade.id)'>
+            <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+            <p class="p">{{grade.name}}</p>
+        </div>
+    </label>
+</div>
+<div class="weui-btn-area">
+    <div ng-click="submit()" class="weui-btn weui-btn_primary" ng-class="{'weui-btn_disabled':!changeGrade}">确认提交</div>
+</div>
